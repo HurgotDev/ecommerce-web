@@ -5,16 +5,20 @@ import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles'
 import { defaultTheme as StyledComponentTheme } from 'core/themes/StyledComponents.theme'
 import { defaultTheme as MuiTheme } from 'core/themes/Mui.theme'
 import { AppPropsWithLayout } from 'types/next'
+import { Provider } from 'react-redux'
+import store from '@redux/store'
 
 function App({ Component, pageProps }: AppPropsWithLayout) {
     const getLayout = Component.getLayout ?? ((page) => page)
 
     return (
-        <MuiThemeProvider theme={MuiTheme}>
-            <StyledComponentThemeProvider theme={StyledComponentTheme}>
-                {getLayout(<Component {...pageProps} />)}
-            </StyledComponentThemeProvider>
-        </MuiThemeProvider>
+        <Provider store={store()}>
+            <MuiThemeProvider theme={MuiTheme}>
+                <StyledComponentThemeProvider theme={StyledComponentTheme}>
+                    {getLayout(<Component {...pageProps} />)}
+                </StyledComponentThemeProvider>
+            </MuiThemeProvider>
+        </Provider>
     )
 }
 

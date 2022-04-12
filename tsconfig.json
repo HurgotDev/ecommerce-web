@@ -23,7 +23,8 @@
       "services/*": ["src/services/*"],
       "types/*": ["src/types/*"],
       "utils/*": ["src/utils/*"],
-      "environment/*": ["environment/*"]
+      "environment/*": ["environment/*"],
+      "@redux/*": ["src/@redux/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

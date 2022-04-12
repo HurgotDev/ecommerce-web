@@ -16,4 +16,4 @@ app.configure(
     }),
 )
 
-export const ClientFeathers = app
+export default app
